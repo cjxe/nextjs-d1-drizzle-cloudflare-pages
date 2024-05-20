@@ -9,9 +9,15 @@
 
 For dev mode you need to:
 
-1. Create a D1 Database https://developers.cloudflare.com/d1/get-started/#3-create-a-database
-2. Create a `.env` file and a `wrangler.toml` file with the necessary information.
-3. Find and replace all "TBA" and "nextjs-d1-drizzle-cloudflare-pages" values in the code.
+1. [Create a D1 database.](https://developers.cloudflare.com/d1/get-started/#3-create-a-database)
+2. Create a `.env` file and a `wrangler.toml` file with the necessary information (e.g., find and
+   replace all "TBA" and "nextjs-d1-drizzle-cloudflare-pages" values in the code).
+3. Install app's dependencies:
+
+```sh
+pnpm install
+```
+
 4. Generate db migration files (which are SQL queries that will be run on the databases to update
    their tables in the next step):
 
@@ -19,12 +25,12 @@ For dev mode you need to:
 pnpm db:generate
 ```
 
-4. Run db migrations:
+5. Run db migrations:
 
 - local db: `pnpm db:migrate:local`
 - prod remote db: `pnpm db:migrate:prod:remote`
 
-5. View the database using a graphical user interface:
+6. View the database using a graphical user interface:
 
 - local db: `db:studio:local`
 - prod remote db: `db:studio:prod`
