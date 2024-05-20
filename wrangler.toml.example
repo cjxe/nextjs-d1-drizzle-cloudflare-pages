@@ -1,8 +1,8 @@
 # Your wrangler.toml file should look something like this:
-
-node_compat = true
-compatibility_date = "2024-03-14"
+name = "nextjs-d1-drizzle-cloudflare-pages"
+compatibility_date = "2024-05-12"
 compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
 
 # WARNING: When running a production build locally using Wrangler, be aware that the .env file may be omitted. Therefore, ensure that you have the same environment variables in your wrangler.toml file.
 [vars]

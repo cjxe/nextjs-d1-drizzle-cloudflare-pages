@@ -16,8 +16,8 @@
     "build": "next build",
     "dev": "next dev",
     "pages:build": "pnpm next-on-pages",
-    "pages:watch": "pnpm next-on-pages --watch",
-    "pages:dev": "pnpm pages:build && pnpm wrangler pages dev .vercel/output/static"
+    "pages:dev": "pnpm pages:build && pnpm wrangler pages dev",
+    "pages:deploy": "pnpm pages:build && pnpm wrangler pages deploy"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.25.0",
