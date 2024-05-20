@@ -1,21 +1,11 @@
-import { binding } from "cf-bindings-proxy";
-import { drizzle } from "drizzle-orm/d1";
+import { drizzle } from 'drizzle-orm/d1';
+import * as schema from '@/server/db/schema';
+import { getRequestContext } from '@cloudflare/next-on-pages';
 
-import { env } from "@/env";
-import * as schema from "./schema";
+export const runtime = 'edge';
 
-/**
- * Cache the database connection in development. This avoids creating a new connection on every HMR
- * update.
- */
-const globalForDb = globalThis as unknown as {
-  conn: D1Database | undefined;
+export const initDbConnection = async () => {
+  'use server';
+
+  return drizzle(getRequestContext().env.DB, { schema });
 };
-
-/**
- * NOTE: I am not using https://github.com/cloudflare/next-on-pages/tree/main/internal-packages/next-dev since it can't be called at the top level
- */
-export const conn = globalForDb.conn ?? binding<D1Database>(env.D1_BINDING);
-if (env.NODE_ENV !== "production") globalForDb.conn = conn;
-
-export const db = drizzle(conn, { schema });

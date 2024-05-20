@@ -1,23 +1,23 @@
 # Your wrangler.toml file should look something like this:
 
 node_compat = true
-compatibility_flags = [ "nodejs_compat" ]
+compatibility_date = "2024-03-14"
+compatibility_flags = ["nodejs_compat"]
 
 # WARNING: When running a production build locally using Wrangler, be aware that the .env file may be omitted. Therefore, ensure that you have the same environment variables in your wrangler.toml file.
 [vars]
-D1_BINDING = "DB"
-DB_PREFIX = "t3-cloudflare" # The prefix doesn't need to be the exact same as your database name
-DB_NAME = "t3-cloudflare" # The name of your D1 database
+DB_PREFIX = "nextjs-d1-drizzle-cloudflare-pages" # The prefix doesn't need to be the exact same as your database name
+DB_NAME = "nextjs-d1-drizzle-cloudflare-pages" # The name of your D1 database
 
-[[d1_databases]]
+[[env.production.d1_databases]]
 binding = "DB" # i.e. available in your Worker on env.DB
-database_name = "t3-cloudflare" # When you create your D1 DB, you choose the name
-database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+database_name = "nextjs-d1-drizzle-cloudflare-pages" # When you create your D1 DB, you choose the name
+database_id = "TBA"
 preview_database_id = "DB"
 
 [env.preview]
 name = "preview"
 [[env.preview.d1_databases]]
 binding = "DB" # i.e. available in your Worker on env.DB
-database_name = "t3-cloudflare-preview"
-database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+database_name = "nextjs-d1-drizzle-cloudflare-pages-preview"
+database_id = "TBA"

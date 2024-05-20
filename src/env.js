@@ -1,5 +1,6 @@
-import { createEnv } from "@t3-oss/env-nextjs";
-import { z } from "zod";
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { createEnv } from '@t3-oss/env-nextjs';
+import { z } from 'zod';
 
 export const env = createEnv({
   /**
@@ -11,10 +12,7 @@ export const env = createEnv({
     LOCAL_DB_PATH: z.string().optional(),
     WRANGLER_CONFIG: z.string().optional(),
     DB_NAME: z.string().optional(),
-    D1_BINDING: z.string(),
-    NODE_ENV: z
-      .enum(["development", "test", "production"])
-      .default("development"),
+    NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   },
 
   /**
@@ -35,7 +33,6 @@ export const env = createEnv({
     LOCAL_DB_PATH: process.env.LOCAL_DB_PATH,
     WRANGLER_CONFIG: process.env.WRANGLER_CONFIG,
     DB_NAME: process.env.DB_NAME,
-    D1_BINDING: process.env.D1_BINDING,
     NODE_ENV: process.env.NODE_ENV,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
