@@ -1,4 +1,4 @@
-import { initDbConnection } from '@/server/db';
+import { db } from '@/server/db';
 import { customersTable } from '@/server/db/schema';
 import { revalidatePath } from 'next/cache';
 
@@ -7,15 +7,11 @@ export const runtime = 'edge';
 export const getCustomers = async () => {
   'use server';
 
-  const db = await initDbConnection();
-
-  return await db.select().from(customersTable).all();
+  return await db.select().from(customersTable);
 };
 
 export const createCustomerWithCustomId = async (formData: FormData) => {
   'use server';
-
-  const db = await initDbConnection();
 
   const customerId = formData.get('customerId');
 

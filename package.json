@@ -15,11 +15,9 @@
     "db:studio:prod": "drizzle-kit studio",
     "build": "next build",
     "dev": "next dev",
-    "start": "pnpm build && next start",
     "pages:build": "pnpm next-on-pages",
     "pages:watch": "pnpm next-on-pages --watch",
-    "pages:dev": "pnpm pages:build && pnpm wrangler pages dev .vercel/output/static",
-    "pages:prod": "pnpm pages:build && pnpm wrangler pages dev --env production .vercel/output/static"
+    "pages:dev": "pnpm pages:build && pnpm wrangler pages dev .vercel/output/static"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.25.0",

@@ -9,7 +9,7 @@ compatibility_flags = ["nodejs_compat"]
 DB_PREFIX = "nextjs-d1-drizzle-cloudflare-pages" # The prefix doesn't need to be the exact same as your database name
 DB_NAME = "nextjs-d1-drizzle-cloudflare-pages" # The name of your D1 database
 
-[[env.production.d1_databases]]
+[[d1_databases]]
 binding = "DB" # i.e. available in your Worker on env.DB
 database_name = "nextjs-d1-drizzle-cloudflare-pages" # When you create your D1 DB, you choose the name
 database_id = "TBA"
