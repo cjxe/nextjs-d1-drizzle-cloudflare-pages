@@ -7,8 +7,6 @@
 
 ## Initialise the database(s)
 
-For dev mode you need to:
-
 1. [Create a D1 database.](https://developers.cloudflare.com/d1/get-started/#3-create-a-database)
 2. Create a `.env` file and a `wrangler.toml` file with the necessary information (e.g., find and
    replace all "TBA" and "nextjs-d1-drizzle-cloudflare-pages" values in the code).
