@@ -1,3 +1,5 @@
+<h1 align="center">Next.js + Cloudflare D1 + Drizzle ORM + Drizzle Kit + Cloudflare Pages starter kit</h1>
+
 # Getting started
 
 ## Prerequisites
@@ -10,7 +12,7 @@
 1. [Create a D1 database.](https://developers.cloudflare.com/d1/get-started/#3-create-a-database)
 2. Create a `.env` file and a `wrangler.toml` file with the necessary information (e.g., find and
    replace all "TBA" and "nextjs-d1-drizzle-cloudflare-pages" values in the code).
-3. Install app's dependencies:
+3. Install the app's dependencies:
 
 ```sh
 pnpm install
@@ -26,12 +28,14 @@ pnpm db:generate
 5. Run db migrations:
 
 - local db: `pnpm db:migrate:local`
-- prod remote db: `pnpm db:migrate:prod:remote`
+- preview (remote) db: `pnpm db:migrate:preview`
+- prod (remote) db: `pnpm db:migrate:prod`
 
 6. View the database using a graphical user interface:
 
-- local db: `db:studio:local`
-- prod remote db: `db:studio:prod`
+- local db: `pnpm db:studio:local`
+- preview (remote) db: `pnpm db:studio:preview`
+- prod (remote) db: `pnpm db:studio:prod`
 
 ## Run the app
 
