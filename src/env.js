@@ -8,11 +8,12 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    DB_PREFIX: z.string(),
-    LOCAL_DB_PATH: z.string().optional(),
-    WRANGLER_CONFIG: z.string().optional(),
-    DB_NAME: z.string().optional(),
-    NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
+    CF_ACCOUNT_ID: z.string().optional(),
+    CF_USER_API_TOKEN: z.string().optional(),
+    DB_PREVIEW_DATABASE_ID: z.string().optional(),
+    DB_PROD_DATABASE_ID: z.string().optional(),
+    DB_LOCAL_PATH: z.string().optional(),
+    NODE_ENV: z.enum(['development', 'preview', 'production']).default('development'),
   },
 
   /**
@@ -29,10 +30,11 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
-    DB_PREFIX: process.env.DB_PREFIX,
-    LOCAL_DB_PATH: process.env.LOCAL_DB_PATH,
-    WRANGLER_CONFIG: process.env.WRANGLER_CONFIG,
-    DB_NAME: process.env.DB_NAME,
+    CF_ACCOUNT_ID: process.env.CF_ACCOUNT_ID,
+    CF_USER_API_TOKEN: process.env.CF_USER_API_TOKEN,
+    DB_PREVIEW_DATABASE_ID: process.env.DB_PREVIEW_DATABASE_ID,
+    DB_PROD_DATABASE_ID: process.env.DB_PROD_DATABASE_ID,
+    DB_LOCAL_PATH: process.env.DB_LOCAL_PATH,
     NODE_ENV: process.env.NODE_ENV,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },

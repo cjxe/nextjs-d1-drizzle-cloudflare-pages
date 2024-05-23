@@ -5,9 +5,8 @@ compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
 
 # WARNING: When running a production build locally using Wrangler, be aware that the .env file may be omitted. Therefore, ensure that you have the same environment variables in your wrangler.toml file.
+# However, you don't have to include Drizzle environment unless you want to access `drizzle-kit` commands in the deployed code.
 [vars]
-DB_PREFIX = "nextjs-d1-drizzle-cloudflare-pages" # The prefix doesn't need to be the exact same as your database name
-DB_NAME = "nextjs-d1-drizzle-cloudflare-pages" # The name of your D1 database
 
 [[d1_databases]]
 binding = "DB" # i.e. available in your Worker on env.DB

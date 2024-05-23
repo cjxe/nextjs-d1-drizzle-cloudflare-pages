@@ -1,5 +1,5 @@
 import { db } from '@/server/db';
-import { customersTable } from '@/server/db/schema';
+import { customerTable } from '@/server/db/schema';
 import { revalidatePath } from 'next/cache';
 
 export const runtime = 'edge';
@@ -7,7 +7,7 @@ export const runtime = 'edge';
 export const getCustomers = async () => {
   'use server';
 
-  return await db.select().from(customersTable);
+  return await db.select().from(customerTable);
 };
 
 export const createCustomerWithCustomId = async (formData: FormData) => {
@@ -16,7 +16,7 @@ export const createCustomerWithCustomId = async (formData: FormData) => {
   const customerId = formData.get('customerId');
 
   try {
-    await db.insert(customersTable).values({
+    await db.insert(customerTable).values({
       customerId: Number(customerId),
       companyName: 'Alfreds Futterkiste',
       contactName: 'Maria Anders',

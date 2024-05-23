@@ -7,25 +7,23 @@ import { env } from '@/env';
  * https://kevinkipp.com/blog/going-full-stack-on-astro-with-cloudflare-d1-and-drizzle/
  * Github discussion: https://github.com/drizzle-team/drizzle-orm/discussions/1545#discussioncomment-8115423
  */
-export default env.LOCAL_DB_PATH
-  ? {
+export default env.DB_LOCAL_PATH
+  ? defineConfig({
       schema: './src/server/db/schema.ts',
-      driver: 'd1',
       dialect: 'sqlite',
       dbCredentials: {
-        url: env.LOCAL_DB_PATH,
+        url: env.DB_LOCAL_PATH,
       },
-    }
+    })
   : defineConfig({
       schema: './src/server/db/schema.ts',
       out: './migrations',
-      driver: 'd1',
+      driver: 'd1-http',
       dialect: 'sqlite',
       dbCredentials: {
-        wranglerConfigPath:
-          new URL('wrangler.toml', import.meta.url).pathname + env.WRANGLER_CONFIG
-            ? ` ${env.WRANGLER_CONFIG}`
-            : '',
-        dbName: env.DB_NAME!,
+        accountId: env.CF_ACCOUNT_ID!,
+        token: env.CF_USER_API_TOKEN!,
+        databaseId:
+          env.NODE_ENV === 'preview' ? env.DB_PREVIEW_DATABASE_ID! : env.DB_PROD_DATABASE_ID!,
       },
     });
