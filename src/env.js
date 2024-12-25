@@ -10,10 +10,9 @@ export const env = createEnv({
   server: {
     CF_ACCOUNT_ID: z.string().optional(),
     CF_USER_API_TOKEN: z.string().optional(),
-    DB_PREVIEW_DATABASE_ID: z.string().optional(),
     DB_PROD_DATABASE_ID: z.string().optional(),
     DB_LOCAL_PATH: z.string().optional(),
-    NODE_ENV: z.enum(['development', 'preview', 'production']).default('development'),
+    NODE_ENV: z.enum(['development', 'production']).default('development'),
   },
 
   /**
@@ -32,7 +31,6 @@ export const env = createEnv({
   runtimeEnv: {
     CF_ACCOUNT_ID: process.env.CF_ACCOUNT_ID,
     CF_USER_API_TOKEN: process.env.CF_USER_API_TOKEN,
-    DB_PREVIEW_DATABASE_ID: process.env.DB_PREVIEW_DATABASE_ID,
     DB_PROD_DATABASE_ID: process.env.DB_PROD_DATABASE_ID,
     DB_LOCAL_PATH: process.env.DB_LOCAL_PATH,
     NODE_ENV: process.env.NODE_ENV,

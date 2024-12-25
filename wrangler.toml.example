@@ -13,10 +13,3 @@ binding = "DB" # i.e. available in your Worker on env.DB
 database_name = "nextjs-d1-drizzle-cloudflare-pages" # When you create your D1 DB, you choose the name
 database_id = "TBA"
 preview_database_id = "DB"
-
-[env.preview]
-name = "preview"
-[[env.preview.d1_databases]]
-binding = "DB" # i.e. available in your Worker on env.DB
-database_name = "nextjs-d1-drizzle-cloudflare-pages-preview"
-database_id = "TBA"

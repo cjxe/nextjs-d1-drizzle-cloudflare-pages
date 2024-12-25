@@ -1,4 +1,4 @@
-<h1 align="center">Next.js + Cloudflare D1 + Drizzle ORM + Drizzle Kit + Cloudflare Pages starter kit</h1>
+<h1 align="center">Next.js + Cloudflare D1 SQL + Drizzle ORM + Drizzle Kit + Cloudflare Pages starter kit</h1>
 
 # Getting started
 
@@ -9,32 +9,37 @@
 
 ## Initialise the database(s)
 
-1. [Create a D1 database.](https://developers.cloudflare.com/d1/get-started/#3-create-a-database)
-2. Create a `.env` file and a `wrangler.toml` file with the necessary information (e.g., find and
-   replace all "TBA" and "nextjs-d1-drizzle-cloudflare-pages" values in the code).
+1. [Create a production D1 database.](https://developers.cloudflare.com/d1/get-started/#3-create-a-database)
+2. The starter kit focuses on 2 environments, **development on local machine** and **production on
+   remote machine**. So, create the following files:
+
+   1. `.env.development`: duplicate `.env.example`, and set the variables to development values.
+   2. `.env.production`: duplicate `.env.example`, and set the variables to production values.
+   3. `wrangler.toml.development`: duplicate `wrangler.toml.example`, and set the variables to
+      development values.
+   4. `wrangler.toml.production`: duplicate `wrangler.toml.example`, and set the variables to
+      production values.
+
 3. Install the app's dependencies:
 
 ```sh
 pnpm install
 ```
 
-4. Generate db migration files (which are SQL queries that will be run on the databases to update
-   their tables in the next step):
+4. Generate db migration files (that documents schema changes in an SQL script).
 
 ```sh
 pnpm db:generate
 ```
 
-5. Run db migrations:
+5. Run db migrations (that executes the SQL script to update the database to match the schema).
 
 - local db: `pnpm db:migrate:local`
-- preview (remote) db: `pnpm db:migrate:preview`
 - prod (remote) db: `pnpm db:migrate:prod`
 
 6. View the database using a graphical user interface:
 
 - local db: `pnpm db:studio:local`
-- preview (remote) db: `pnpm db:studio:preview`
 - prod (remote) db: `pnpm db:studio:prod`
 
 ## Run the app
@@ -54,8 +59,14 @@ Cloudflare pages.
 pnpm pages:dev
 ```
 
-⚠️ **Warning**: As of 20 May 2024, connecting to the prod remote db on the local code
+⚠️ **Warning #1**: Connecting to the prod remote db on the local code
 [is not supported](https://developers.cloudflare.com/d1/build-with-d1/local-development/).
+
+⚠️ **Warning #2**: All pages deployed to Cloudflare Pages run on edge runtime, whereas
+[ISR only works on Nodejs runtime](https://developers.cloudflare.com/pages/framework-guides/nextjs/ssr/supported-features/)
+(because how Vercel designed their functions); so, some functions like `revalidatePath` will throw
+an error when running the app with `pnpm pages:dev`. But, the functions work as expected after
+deploying.
 
 ## Deploy
 
