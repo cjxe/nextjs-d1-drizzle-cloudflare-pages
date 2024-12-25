@@ -5,7 +5,7 @@
 ## Prerequisites
 
 1. Node.js >=v20.11.0
-2. pnpm >=v8.15.4
+2. pnpm >=v9.15.1
 
 ## Initialise the database(s)
 
