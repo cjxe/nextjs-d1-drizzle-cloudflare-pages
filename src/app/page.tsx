@@ -22,7 +22,9 @@ export default async function Home() {
         <li>
           <form action={createCustomerWithCustomId}>
             <input type="text" name="customerId" placeholder="add a new customer ID"></input>
-            <button type="submit">submit</button>
+            <button type="submit" className="border-2 border-red-500 p-1">
+              submit
+            </button>
           </form>
         </li>
       </ul>
