@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "db:generate": "drizzle-kit generate",
-    "db:migrate:local": "wrangler d1 migrations apply nextjs-d1-drizzle-cloudflare-pages --local",
+    "db:migrate:dev": "wrangler d1 migrations apply nextjs-d1-drizzle-cloudflare-pages --local",
     "db:migrate:prod": "wrangler d1 migrations apply nextjs-d1-drizzle-cloudflare-pages --remote",
-    "db:studio:local": "pnpm setup:dev && cross-env DB_LOCAL_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio --port 3094",
+    "db:studio:dev": "pnpm setup:dev && cross-env DB_LOCAL_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio --port 3094",
     "db:studio:prod": "pnpm setup:prod && drizzle-kit studio --port 3098",
     "build": "next build",
     "setup:dev": "cp .env.development .env && cp .env.development .env.production.local && cp wrangler.toml.development wrangler.toml",

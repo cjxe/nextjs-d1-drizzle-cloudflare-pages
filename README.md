@@ -34,12 +34,12 @@ pnpm db:generate
 
 5. Run db migrations (that executes the SQL script to update the database to match the schema).
 
-- local db: `pnpm db:migrate:local`
+- dev (local) db: `pnpm db:migrate:dev`
 - prod (remote) db: `pnpm db:migrate:prod`
 
 6. View the database using a graphical user interface:
 
-- local db: `pnpm db:studio:local`
+- dev (local) db: `pnpm db:studio:dev`
 - prod (remote) db: `pnpm db:studio:prod`
 
 ## Run the app
