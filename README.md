@@ -2,6 +2,9 @@
 
 # Getting started
 
+> [!CAUTION]
+> The [next-on-pages](https://www.npmjs.com/package/@cloudflare/next-on-pages) library has been deprecated. Please follow the instructions in the link to migrate to a new library.
+
 ## Prerequisites
 
 1. Node.js >=v20.11.0
